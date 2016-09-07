@@ -10,6 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var userGuess: UITextField!
+    
+    @IBAction func clickGuess(_ sender: AnyObject) {
+        
+        let correctGuess = String(arc4random_uniform(6))
+        
+        if userGuess.text == correctGuess {
+            resultGuess.text = "You are correct sir!"
+        }
+        else {
+            resultGuess.text = "Wrong! It was " + correctGuess + "."
+            
+        }
+    }
+
+    @IBOutlet weak var resultGuess: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
